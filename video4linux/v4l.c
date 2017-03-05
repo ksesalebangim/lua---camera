@@ -651,6 +651,12 @@ static const struct luaL_reg v4l [] = {
 };
 
 int luaopen_libv4l (lua_State *L) {
-    luaL_openlib(L, "libv4l", v4l, 0);
+    //luaL_openlib(L, "libv4l", v4l, 0);
+	lua_newtable(L);
+	luaL_setfuncs(L, v4l, 0);
+	lua_setglobal(L, "libv4l");
     return 1;
 }
+
+
+
